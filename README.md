@@ -1,4 +1,4 @@
-## 🏦 SmartLender: AI-Powered Loan Approval System
+# 🏦 SmartLender: AI-Powered Loan Approval System
 
 SmartLender is a machine learning web application designed to streamline the loan approval process. By analyzing an applicant's financial and demographic data, the system instantly predicts loan eligibility using a highly optimized XGBoost classifier.
 
@@ -16,7 +16,6 @@ SmartLender is a machine learning web application designed to streamline the loa
 - **Web Framework:** Flask
 - **Serialization:** Pickle
 
----
 
 ## 📁 Project Structure
 
@@ -37,13 +36,11 @@ smartlender/
 │   ├── model_columns.pkl       # Serialized feature column names (Generated from Training/)
 │   └── templates/              # HTML templates for Flask
 │       ├── home.html           # Landing page (Project details)
-│       ├── input.html          # Loan application form
+│       ├── predict.html          # Loan application form
 │       └── output.html         # Prediction results page
 ├── requirements.txt            # Python dependencies for the web app 
 └── README.md                   # Project documentation
 ```
-
----
 
 ## 🚀 Setup & Installation
 
