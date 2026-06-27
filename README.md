@@ -36,7 +36,7 @@ smartlender/
 │   ├── model_columns.pkl       # Serialized feature column names (Generated from Training/)
 │   └── templates/              # HTML templates for Flask
 │       ├── home.html           # Landing page (Project details)
-│       ├── predict.html          # Loan application form
+│       ├── predict.html        # Loan application form
 │       └── output.html         # Prediction results page
 ├── requirements.txt            # Python dependencies for the web app 
 └── README.md                   # Project documentation
