@@ -60,13 +60,13 @@ Set up a virtual environment.
 ```bash
 
 # Create venv
-python -m venv venv
+python -m venv .venv
 
 # Activate on Windows
-venv\Scripts\activate
+.venv\Scripts\activate
 
 # Activate on macOS/Linux
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 ### 3. Install Dependencies
