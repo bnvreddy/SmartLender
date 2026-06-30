@@ -4,36 +4,65 @@
     <title>SmartLender - Loan Application</title>
     <style>
       body {
-        font-family: Arial;
+        font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         padding: 20px;
+        margin: 0;
       }
       .form-container {
         background: white;
-        padding: 20px;
+        padding: 30px;
         border-radius: 8px;
-        max-width: 500px;
+        max-width: 1100px; /* Widened to fit horizontal layout */
         margin: auto;
         box-shadow: 0px 0px 10px #aaa;
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #eaeaea;
+        padding-bottom: 10px;
+      }
+      /* Grid system to align fields horizontally */
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px 25px; /* Adjusts horizontal and vertical spacing */
+        margin-bottom: 25px;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column; /* Keeps labels directly above inputs */
+      }
+      label {
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 5px;
       }
       input,
       select {
         width: 100%;
         padding: 10px;
-        margin: 10px 0;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
+        font-size: 14px;
+      }
+      .button-container {
+        grid-column: 1 / -1; /* Spans the full width of the grid */
+        margin-top: 10px;
       }
       button {
         background-color: #28a745;
         color: white;
-        padding: 10px 15px;
+        padding: 12px 15px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         width: 100%;
         font-size: 16px;
+        font-weight: bold;
       }
       button:hover {
         background-color: #218838;
@@ -41,7 +70,7 @@
     </style>
   </head>
   <body>
-    <div style="text-align: right; padding: 15px; background: #f4f4f4">
+    <div style="text-align: right; padding: 15px; max-width: 1100px; margin: auto;">
       <a
         href="/"
         style="text-decoration: none; color: #2c3e50; font-weight: bold"
@@ -52,84 +81,112 @@
     <div class="form-container">
       <h2>Loan Application Form</h2>
       <form action="/predict" method="POST">
-        <label>Gender:</label>
-        <select name="Gender" required>
-          <option value="1">Male</option>
-          <option value="0">Female</option>
-        </select>
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label>Gender:</label>
+            <select name="Gender" required>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
 
-        <label>Married:</label>
-        <select name="Married" required>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
+          <div class="form-group">
+            <label>Married:</label>
+            <select name="Married" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
 
-        <label>Dependents:</label>
-        <select name="Dependents" required>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3+</option>
-        </select>
+          <div class="form-group">
+            <label>Dependents:</label>
+            <select name="Dependents" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
 
-        <label>Education:</label>
-        <select name="Education" required>
-          <option value="0">Not Graduate</option>
-          <option value="1">Graduate</option>
-        </select>
+          <div class="form-group">
+            <label>Education:</label>
+            <select name="Education" required>
+              <option value="0">Not Graduate</option>
+              <option value="1">Graduate</option>
+            </select>
+          </div>
 
-        <label>Self Employed:</label>
-        <select name="Self_Employed" required>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
+          <div class="form-group">
+            <label>Self Employed:</label>
+            <select name="Self_Employed" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
 
-        <label>Applicant Income:</label>
-        <input
-          type="number"
-          name="ApplicantIncome"
-          placeholder="e.g., 5000"
-          required
-        />
+          <div class="form-group">
+            <label>Applicant Income:</label>
+            <input
+              type="number"
+              name="ApplicantIncome"
+              placeholder="e.g., 5000"
+              required
+            />
+          </div>
 
-        <label>Coapplicant Income:</label>
-        <input
-          type="number"
-          name="CoapplicantIncome"
-          placeholder="e.g., 0"
-          required
-        />
+          <div class="form-group">
+            <label>Coapplicant Income:</label>
+            <input
+              type="number"
+              name="CoapplicantIncome"
+              placeholder="e.g., 0"
+              required
+            />
+          </div>
 
-        <label>Loan Amount (in thousands):</label>
-        <input
-          type="number"
-          name="LoanAmount"
-          placeholder="e.g., 150"
-          required
-        />
+          <div class="form-group">
+            <label>Loan Amount (in thousands):</label>
+            <input
+              type="number"
+              name="LoanAmount"
+              placeholder="e.g., 150"
+              required
+            />
+          </div>
 
-        <label>Loan Amount Term (days):</label>
-        <select name="Loan_Amount_Term" required>
-          <option value="360">360</option>
-          <option value="180">180</option>
-          <option value="240">240</option>
-          <option value="120">120</option>
-        </select>
+          <div class="form-group">
+            <label>Loan Amount Term (days):</label>
+            <select name="Loan_Amount_Term" required>
+              <option value="360">360</option>
+              <option value="180">180</option>
+              <option value="240">240</option>
+              <option value="120">120</option>
+            </select>
+          </div>
 
-        <label>Credit History:</label>
-        <select name="Credit_History" required>
-          <option value="1">Meets guidelines (1)</option>
-          <option value="0">Does not meet (0)</option>
-        </select>
+          <div class="form-group">
+            <label>Credit History:</label>
+            <select name="Credit_History" required>
+              <option value="1">Meets guidelines (1)</option>
+              <option value="0">Does not meet (0)</option>
+            </select>
+          </div>
 
-        <label>Property Area:</label>
-        <select name="Property_Area" required>
-          <option value="2">Urban</option>
-          <option value="1">Semiurban</option>
-          <option value="0">Rural</option>
-        </select>
+          <div class="form-group">
+            <label>Property Area:</label>
+            <select name="Property_Area" required>
+              <option value="2">Urban</option>
+              <option value="1">Semiurban</option>
+              <option value="0">Rural</option>
+            </select>
+          </div>
 
-        <button type="submit">Check Loan Status</button>
+          <div class="button-container">
+            <button type="submit">Check Loan Status</button>
+          </div>
+
+        </div>
       </form>
     </div>
   </body>
